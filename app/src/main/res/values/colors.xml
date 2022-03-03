@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#fbd743</color>
+    <color name="primary">#426C9F</color>
+    <color name="primaryDark">#363b81</color>
+    <color name="accentRed">#ff1f1f</color>
+    <color name="accentRedDark">#BF1818</color>
+    <color name="accentBlue">#5db9ff</color>
+    <color name="bg_progress_bar">#C4E8FB</color>
+</resources>

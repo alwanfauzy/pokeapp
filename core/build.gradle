@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+apply from: '../shared_dependencies.gradle'
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", 'BASE_URL', '"https://pokeapi.co/api/v2/"')
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    // RxJava
+    api "io.reactivex.rxjava2:rxjava:2.2.19"
+    api "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+    implementation "androidx.room:room-rxjava2:2.4.2"
+    api "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.4.1"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.3"
+    api "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3"
+    implementation "com.google.code.gson:gson:2.8.6"
+
+    // Room
+    api "androidx.room:room-runtime:2.4.2"
+    implementation "androidx.room:room-ktx:2.4.2"
+    testImplementation "androidx.room:room-testing:2.4.2"
+    kapt "androidx.room:room-compiler:2.4.2"
+}
